@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+
+      <div class="col-md-6 col1">
+        <p id="addheader">Add todo list to your bucket</p>
+      </div>
+      <div class="col-md-4 col2">
+        <p id="addheader">Your bucket list ({{ itemCount }}). Click to remove list</p>
+      </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6 content">
+      <p id="headCrap">Add the things you want to accomplish today!</p>
+     <form>
+        <input type="text" name="item" placeholder="Daily goals" class="form-control" id="goal" [(ngModel)] = "goalText">
+        <input type="submit" class="btn btn-success" value="{{btnText}}" (click) = "addItem()">
+     </form>
+    </div>
+    <div class="col-md-4 sideList">
+     <div class="row listRow" *ngFor = "let goal of goals; let i = index" (click) = "alertRemoval(i)">
+       <p id="bucketList">{{goal.length >= limit.length ? error : goal}}</p>
+     </div>
+    </div>
+
+  </div>
+</div>
